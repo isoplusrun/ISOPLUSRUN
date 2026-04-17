@@ -1,77 +1,280 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Run Registration</title>
-<link rel="stylesheet" href="style.css">
+
+<title>Registrasi ISOPLUS RUN</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#0b4c8c;
+margin:0;
+padding:0;
+display:flex;
+justify-content:center;
+}
+
+.container{
+background:white;
+max-width:500px;
+width:95%;
+margin:40px;
+padding:25px;
+border-radius:10px;
+}
+
+h2{
+text-align:center;
+color:#0b4c8c;
+}
+
+.progress{
+display:flex;
+justify-content:space-between;
+margin-bottom:25px;
+}
+
+.step{
+width:33%;
+text-align:center;
+font-size:14px;
+}
+
+.bar{
+height:6px;
+background:#ddd;
+margin-top:5px;
+border-radius:5px;
+}
+
+.active .bar{
+background:#ffc400;
+}
+
+.form-step{
+display:none;
+}
+
+.form-step.active{
+display:block;
+}
+
+label{
+font-weight:bold;
+display:block;
+margin-top:15px;
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin-top:5px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+.buttons{
+display:flex;
+justify-content:space-between;
+margin-top:20px;
+}
+
+button{
+padding:12px 18px;
+border:none;
+border-radius:20px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.next{
+background:#ffc400;
+}
+
+.prev{
+background:#ccc;
+}
+
+.submit{
+background:#0b4c8c;
+color:white;
+width:100%;
+margin-top:20px;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<!-- HEADER -->
-<div class="header">
-    <h1>RUN EVENT 2026</h1>
-    <div class="menu">☰</div>
-</div>
-
-<!-- FORM -->
 <div class="container">
 
-    <img src="banner.png" class="banner">
+<h2>Registrasi ISOPLUS RUN</h2>
 
-    <!-- CATEGORY -->
-    <div class="form-group">
-        <label>*Ticket Category</label>
-        <select id="category" onchange="updatePrice()">
-            <option value="">Choose Category</option>
-            <option value="5K">5K</option>
-            <option value="10K">10K</option>
-            <option value="KID DASH">KID DASH</option>
-        </select>
-    </div>
+<div class="progress">
 
-    <!-- HARGA -->
-    <div class="price-box" id="priceBox">
-        Harga: -
-    </div>
+<div class="step active">
+Step 1
+<div class="bar"></div>
+</div>
 
-    <div class="form-group">
-        <label>*Full Name</label>
-        <input type="text" id="name" placeholder="Full Name">
-    </div>
+<div class="step">
+Step 2
+<div class="bar"></div>
+</div>
 
-    <div class="form-group">
-        <label>*Email</label>
-        <input type="email" id="email" placeholder="Email">
-    </div>
-
-    <div class="form-group">
-        <label>*Phone</label>
-        <input type="text" id="phone" placeholder="Phone Number">
-    </div>
-
-    <div class="form-group">
-        <label>*Jersey Size</label>
-        <select id="jersey">
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
-            <option>XL</option>
-        </select>
-    </div>
-
-    <div class="checkbox">
-        <input type="checkbox" id="agree">
-        <label>I agree to Rules</label>
-    </div>
-
-    <button id="submitBtn" onclick="submitForm()">Submit</button>
+<div class="step">
+Step 3
+<div class="bar"></div>
+</div>
 
 </div>
 
-<script src="script.js"></script>
+<form>
+
+<!-- STEP 1 -->
+
+<div class="form-step active">
+
+<label>Nama Lengkap</label>
+<input type="text" required>
+
+<label>Email</label>
+<input type="email" required>
+
+<label>No WhatsApp</label>
+<input type="tel" required>
+
+<label>Jenis Kelamin</label>
+<select required>
+<option value="">Pilih</option>
+<option>Pria</option>
+<option>Wanita</option>
+</select>
+
+<label>Tanggal Lahir</label>
+<input type="date">
+
+<div class="buttons">
+<button type="button" class="next">Next</button>
+</div>
+
+</div>
+
+
+<!-- STEP 2 -->
+
+<div class="form-step">
+
+<label>Kota Domisili</label>
+<input type="text">
+
+<label>Kategori Lari</label>
+<select>
+
+<option>5K</option>
+<option>10K</option>
+
+</select>
+
+<label>Ukuran Jersey</label>
+
+<select>
+
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+
+</select>
+
+<label>Kontak Darurat</label>
+<input type="text">
+
+<div class="buttons">
+
+<button type="button" class="prev">Back</button>
+<button type="button" class="next">Next</button>
+
+</div>
+
+</div>
+
+
+<!-- STEP 3 -->
+
+<div class="form-step">
+
+<label>Upload KTP / Identitas</label>
+
+<input type="file">
+
+<label>Upload Bukti Pembayaran</label>
+
+<input type="file">
+
+<label>
+
+<input type="checkbox" required>
+
+Saya setuju dengan syarat & ketentuan lomba
+
+</label>
+
+<button class="submit">
+Daftar Sekarang
+</button>
+
+<div class="buttons">
+<button type="button" class="prev">Back</button>
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+<script>
+
+const nextBtns = document.querySelectorAll(".next");
+const prevBtns = document.querySelectorAll(".prev");
+
+const steps = document.querySelectorAll(".form-step");
+const indicators = document.querySelectorAll(".step");
+
+let current = 0;
+
+nextBtns.forEach(btn=>{
+btn.onclick=()=>{
+steps[current].classList.remove("active");
+indicators[current].classList.remove("active");
+
+current++;
+
+steps[current].classList.add("active");
+indicators[current].classList.add("active");
+}
+})
+
+prevBtns.forEach(btn=>{
+btn.onclick=()=>{
+steps[current].classList.remove("active");
+indicators[current].classList.remove("active");
+
+current--;
+
+steps[current].classList.add("active");
+indicators[current].classList.add("active");
+}
+})
+
+</script>
 
 </body>
 </html>
